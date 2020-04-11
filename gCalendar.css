@@ -1,0 +1,194 @@
+.gCalendar * {
+    margin: 0;
+    padding: 0;
+}
+
+.gCalendar table, .gCalendar table th, .gCalendar table td {
+    border: 0;
+    box-sizing: content-box;
+}
+
+/* Blue default */
+
+.gCalendar table {
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border-radius: 4px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+    color: #000000;
+    font-family: Tahoma, Geneva, sans-serif;
+    margin: 5px;
+}
+
+.gCalendar tr {
+    line-height: 0;
+}
+
+.gCalendar thead .gCalendar-title {
+    height: 40px;
+    line-height: 40px;
+}
+
+.gCalendar thead .gCalendar-title-left {
+    float: left;
+}
+
+.gCalendar thead .gCalendar-title-right {
+    float: right;
+}
+
+.gCalendar thead .gCalendar-nav-left, .gCalendar thead .gCalendar-nav-right {
+    border-radius: 10px;
+    color: #999999;
+    cursor: pointer;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12px;
+    font-weight: bold;
+    height: 20px;
+    line-height: 20px;
+    margin: 10px 8px;
+    text-align: center;
+    transition: color 0.2s, background-color 0.2s;
+    width: 20px;
+}
+
+.gCalendar thead .gCalendar-nav-left:hover, .gCalendar thead .gCalendar-nav-right:hover {
+    background-color: #E2E2E2;
+    color: #000000;
+}
+
+.gCalendar thead .gCalendar-nav-left {
+    float: left;
+}
+
+.gCalendar thead .gCalendar-nav-right {
+    float: right;
+}
+
+.gCalendar thead .gCalendar-title-name {
+    cursor: default;
+    float: left;
+    font-size: 18px;
+    font-weight: lighter;
+    padding: 0 20px;
+}
+
+.gCalendar thead .gCalendar-nav-left:after {
+    content: "<";
+}
+
+.gCalendar thead .gCalendar-nav-right:after {
+    content: ">";
+}
+
+.gCalendar thead .gCalendar-week-days th {
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+}
+
+.gCalendar thead .gCalendar-week-days th, .gCalendar tbody td {
+    border-radius: 18px;
+    cursor: default;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: lighter;
+    height: 36px;
+    line-height: 36px;
+    margin: 1px 2px;
+    text-align: center;
+    transition: color 0.1s, background-color 0.2s;
+    width: 36px;
+}
+
+.gCalendar tbody td:hover {
+    background-color: #E6E6E6;
+}
+
+.gCalendar tbody td.gCalendar-selected {
+    background-color: #FFFFFF;
+    border: 2px solid #E6E6E6;
+    height: 32px;
+    line-height: 32px;
+    width: 32px;
+}
+
+.gCalendar tbody td.gCalendar-current {
+    background-color: #52C9FF;
+    border-radius: 18px;
+    color: #FFFFFF;
+}
+
+.gCalendar tbody td.gCalendar-previous, .gCalendar tbody td.gCalendar-next {
+    color: #CACACA;
+}
+
+.gCalendar tbody td.gCalendar-previous:hover, .gCalendar tbody td.gCalendar-next:hover {
+    color: #FFFFFF;
+}
+
+.gCalendar thead {
+    display: block;
+    margin: 4px 4px 0 4px;
+}
+
+.gCalendar tbody {
+    display: block;
+    margin: 0 4px 4px 4px;
+}
+
+.gCalendar ::-moz-selection {
+    background: #83D8FF;
+}
+
+.gCalendar ::selection {
+    background: #83D8FF;
+}
+
+/* Blue default */
+
+.gCalendar.material-theme table {
+    border-radius: 0;
+}
+
+.gCalendar.material-theme thead {
+    background-color: #52C9FF;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 4px 4px 0 4px;
+}
+
+.gCalendar.material-theme thead .gCalendar-title {
+    display: block;
+    position: relative;
+}
+
+.gCalendar.material-theme thead .gCalendar-title-name {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
+    font-size: 16px;
+    left: 15px;
+    position: absolute;
+    right: 15px;
+    text-align: center;
+}
+
+.gCalendar.material-theme thead .gCalendar-title-left, .gCalendar.material-theme thead .gCalendar-title-right {
+    position: absolute;
+    z-index: 1;
+}
+
+.gCalendar.material-theme thead .gCalendar-nav-left, .gCalendar.material-theme thead .gCalendar-nav-right {
+    color: #FFFFFF;
+}
+
+.gCalendar.material-theme thead .gCalendar-nav-left:hover, .gCalendar.material-theme thead .gCalendar-nav-right:hover {
+    background-color: #03A9F4;
+}
+
+.gCalendar.material-theme thead .gCalendar-title-right {
+    right: 0;
+}
+
+.gCalendar.material-theme thead .gCalendar-week-days th {
+    font-size: 14px;
+    text-shadow: none;
+}
