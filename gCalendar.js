@@ -87,7 +87,7 @@ export default (function () {
                     let tr = document.createElement('tr');
 
                     for (let d = 0; d <= 6; d++) {
-                        let td = document.createElement('td');       
+                        let td = document.createElement('td');
                         ax.days[count] = td;
                         tr.appendChild(td);
                         count++;
@@ -97,14 +97,21 @@ export default (function () {
                 }
             },
 
-            update(date){
+            update(date) {
                 let firstDayWeek = new Date(date.getFullYear(), date.getMonth(), 1).getUTCDay();
-                let lastDay = new Date(date.getFullYear(),date.getMonth()+1,0).getDate() + firstDayWeek - 1;
-                for(let i=0; i<42; i++){
-                    if(i < firstDayWeek)
-                        ax.days[i].innerHTML = '';
-                    else if(i > lastDay)
-                        ax.days[i].innerHTML = '';
+                let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate() + firstDayWeek - 1;
+                let lastDayPrevMonth = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+                for (let i = 0; i < 42; i++) {
+                    ax.days[i].classList = '';
+                    
+                    if (i < firstDayWeek) {
+                        ax.days[i].innerHTML = lastDayPrevMonth - firstDayWeek + i;
+                        ax.days[i].classList.add('gCalendar-previous');
+                    }
+                    else if (i > lastDay) {
+                        ax.days[i].innerHTML = i - lastDay;
+                        ax.days[i].classList.add('gCalendar-next');
+                    }
                     else
                         ax.days[i].innerHTML = i - firstDayWeek + 1;
                 }
@@ -123,7 +130,9 @@ export default (function () {
         ax.update(today);
         ax.append();
 
+        this.update = (date) => ax.update(date);
     };
+
 
     return {
         create: create,
