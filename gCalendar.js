@@ -106,8 +106,6 @@ export default (function () {
                 let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate() + firstDayWeek - 1;
                 let lastDayPrevMonth = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
                 
-                ax.days[0].parentNode.parentNode.classList.add('hide')
-
                 for (let i = 0; i < 42; i++) {
                     ax.days[i].classList = '';
 
@@ -122,8 +120,6 @@ export default (function () {
                     else
                         ax.days[i].innerHTML = i - firstDayWeek + 1;
                 }
-
-                ax.days[0].parentNode.parentNode.classList.remove('hide')
 
             },
 
