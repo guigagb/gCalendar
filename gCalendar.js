@@ -64,6 +64,7 @@ export default (function () {
 
                 let divNavRight = document.createElement('div');
                 divNavRight.classList.add('gCalendar-nav-right');
+                divNavRight.addEventListener('click', this.setNextMonth);
                 divRight.appendChild(divNavRight);
 
             },
@@ -104,6 +105,9 @@ export default (function () {
                 let firstDayWeek = new Date(date.getFullYear(), date.getMonth(), 1).getUTCDay();
                 let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate() + firstDayWeek - 1;
                 let lastDayPrevMonth = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
+                
+                ax.days[0].parentNode.parentNode.classList.add('hide')
+
                 for (let i = 0; i < 42; i++) {
                     ax.days[i].classList = '';
 
@@ -118,6 +122,9 @@ export default (function () {
                     else
                         ax.days[i].innerHTML = i - firstDayWeek + 1;
                 }
+
+                ax.days[0].parentNode.parentNode.classList.remove('hide')
+
             },
 
             setPreviousMonth() {
@@ -126,6 +133,18 @@ export default (function () {
                 else {
                     arg.month = 11;
                     arg.year--;
+                }
+                arg.day = 1;
+                let date = new Date(arg.year, arg.month, arg.day, 0, 0, 0, 0);
+                ax.update(date);
+            },
+
+            setNextMonth(){
+                if(arg.month < 11)
+                    arg.month++
+                else{
+                    arg.month = 0,
+                    arg.year++
                 }
                 arg.day = 1;
                 let date = new Date(arg.year, arg.month, arg.day, 0, 0, 0, 0);
