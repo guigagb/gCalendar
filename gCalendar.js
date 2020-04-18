@@ -161,8 +161,7 @@ export default (function () {
         ax.append();
 
         this.update = (date) => ax.update(date);
-    };
-
+    }
 
     return {
         create: create,
