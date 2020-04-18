@@ -50,11 +50,12 @@ export default (function () {
 
                 let divNavLeft = document.createElement('div');
                 divNavLeft.classList.add('gCalendar-nav-left');
+                divNavLeft.addEventListener('click', this.setPreviousMonth);
                 divLeft.appendChild(divNavLeft);
 
                 let divCenter = document.createElement('div');
                 divCenter.classList.add('gCalendar-title-name');
-                divCenter.innerHTML = this.month[argDefault.month] + ' - ' + arg.year;
+                divCenter.innerHTML = arg.month[argDefault.month] + ' - ' + arg.year;
                 th.appendChild(divCenter);
 
                 let divRight = document.createElement('div');
@@ -98,12 +99,14 @@ export default (function () {
             },
 
             update(date) {
+                this.thead.querySelector('.gCalendar-title-name').innerText = ax.month[arg.month] + ' - ' + date.getFullYear();
+
                 let firstDayWeek = new Date(date.getFullYear(), date.getMonth(), 1).getUTCDay();
                 let lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate() + firstDayWeek - 1;
                 let lastDayPrevMonth = new Date(date.getFullYear(), date.getMonth(), 0).getDate();
                 for (let i = 0; i < 42; i++) {
                     ax.days[i].classList = '';
-                    
+
                     if (i < firstDayWeek) {
                         ax.days[i].innerHTML = lastDayPrevMonth - firstDayWeek + i;
                         ax.days[i].classList.add('gCalendar-previous');
@@ -115,6 +118,18 @@ export default (function () {
                     else
                         ax.days[i].innerHTML = i - firstDayWeek + 1;
                 }
+            },
+
+            setPreviousMonth() {
+                if (arg.month > 0)
+                    arg.month--
+                else {
+                    arg.month = 11;
+                    arg.year--;
+                }
+                arg.day = 1;
+                let date = new Date(arg.year, arg.month, arg.day, 0, 0, 0, 0);
+                ax.update(date);
             },
 
             append() {
